@@ -16,13 +16,13 @@ services:
       - 10013:2606
     networks:
       nr12:
-        ipv6_address: 2001:aaaa:1:1::1
+        ipv6_address: 2001:aaaa:1:1::3
       nr13:
-        ipv6_address: 2001:aaaa:aaaa:1::1
+        ipv6_address: 2001:aaaa:aaaa:1::3
       nr15:
-        ipv6_address: 2001:aaaa:bbbb:1::1
+        ipv6_address: 2001:aaaa:bbbb:1::3
       nr17:
-        ipv6_address: 2001:aaaa:cccc:1::1
+        ipv6_address: 2001:aaaa:cccc:1::3
   r2:
     build: .
     volumes:
@@ -40,11 +40,11 @@ services:
       nr12:
         ipv6_address: 2001:aaaa:1:1::2
       nr24:
-        ipv6_address: 2001:bbbb:aaaa:1::1
+        ipv6_address: 2001:bbbb:aaaa:1::3
       nr26:
-        ipv6_address: 2001:bbbb:bbbb:1::1
+        ipv6_address: 2001:bbbb:bbbb:1::3
       nr28:
-        ipv6_address: 2001:bbbb:cccc:1::1
+        ipv6_address: 2001:bbbb:cccc:1::3
   r3:
     build: .
     volumes:
@@ -94,7 +94,7 @@ services:
       nr15:
         ipv6_address: 2001:aaaa:bbbb:1::2
       nrh511:
-        ipv6_address: 2001:aaaa:ffff:1::1
+        ipv6_address: 2001:aaaa:ffff:1::3
       nr57:
         ipv6_address: 2001:aaaa:dddd:1::2
   r6:
@@ -114,7 +114,7 @@ services:
       nr26:
         ipv6_address: 2001:bbbb:bbbb:1::2
       nrh612:
-        ipv6_address: 2001:bbbb:ffff:1::1
+        ipv6_address: 2001:bbbb:ffff:1::3
       nr68:
         ipv6_address: 2001:bbbb:dddd:1::2
   r7:
@@ -134,9 +134,9 @@ services:
       nr17:
         ipv6_address: 2001:aaaa:cccc:1::2
       nrh713:
-        ipv6_address: 2001:aaaa:eeee:1::1
+        ipv6_address: 2001:aaaa:eeee:1::3
       nr57:
-        ipv6_address: 2001:aaaa:dddd:1::1
+        ipv6_address: 2001:aaaa:dddd:1::3
   r8:
     build: .
     volumes:
@@ -154,9 +154,9 @@ services:
       nr28:
         ipv6_address: 2001:bbbb:cccc:1::2
       nrh814:
-        ipv6_address: 2001:bbbb:eeee:1::1
+        ipv6_address: 2001:bbbb:eeee:1::3
       nr68:
-        ipv6_address: 2001:bbbb:dddd:1::1
+        ipv6_address: 2001:bbbb:dddd:1::3
 
 networks:
   nr12:
@@ -165,6 +165,7 @@ networks:
     ipam:
       driver: default
       config:
+        - subnet: 192.168.12.0/24
         - subnet: 2001:aaaa:1:1::/64
   nr13:
     driver: "bridge"
@@ -172,6 +173,7 @@ networks:
     ipam:
       driver: default
       config:
+        - subnet: 192.168.13.0/24
         - subnet: 2001:aaaa:aaaa:1::/64
   nr15:
     driver: "bridge"
@@ -179,6 +181,7 @@ networks:
     ipam:
       driver: default
       config:
+        - subnet: 192.168.15.0/24
         - subnet: 2001:aaaa:bbbb:1::/64
   nr17:
     driver: "bridge"
@@ -186,6 +189,7 @@ networks:
     ipam:
       driver: default
       config:
+        - subnet: 192.168.17.0/24
         - subnet: 2001:aaaa:cccc:1::/64
   nr57:
     driver: "bridge"
@@ -193,6 +197,7 @@ networks:
     ipam:
       driver: default
       config:
+        - subnet: 192.168.57.0/24
         - subnet: 2001:aaaa:dddd:1::/64
   nr24:
     driver: "bridge"
@@ -200,6 +205,7 @@ networks:
     ipam:
       driver: default
       config:
+        - subnet: 192.168.24.0/24
         - subnet: 2001:bbbb:aaaa:1::/64
   nr26:
     driver: "bridge"
@@ -207,6 +213,7 @@ networks:
     ipam:
       driver: default
       config:
+        - subnet: 192.168.26.0/24
         - subnet: 2001:bbbb:bbbb:1::/64
   nr28:
     driver: "bridge"
@@ -214,6 +221,7 @@ networks:
     ipam:
       driver: default
       config:
+        - subnet: 192.168.28.0/24
         - subnet: 2001:bbbb:cccc:1::/64
   nr68:
     driver: "bridge"
@@ -221,6 +229,7 @@ networks:
     ipam:
       driver: default
       config:
+        - subnet: 192.168.68.0/24
         - subnet: 2001:bbbb:dddd:1::/64
   nrh511:
     driver: "bridge"
@@ -228,6 +237,7 @@ networks:
     ipam:
       driver: default
       config:
+        - subnet: 192.168.51.0/24
         - subnet: 2001:aaaa:ffff:1::/64
   nrh713:
     driver: "bridge"
@@ -235,6 +245,7 @@ networks:
     ipam:
       driver: default
       config:
+        - subnet: 192.168.71.0/24
         - subnet: 2001:aaaa:eeee:1::/64
   nrh612:
     driver: "bridge"
@@ -242,6 +253,7 @@ networks:
     ipam:
       driver: default
       config:
+        - subnet: 192.168.61.0/24
         - subnet: 2001:bbbb:ffff:1::/64
   nrh814:
     driver: "bridge"
@@ -249,4 +261,5 @@ networks:
     ipam:
       driver: default
       config:
+        - subnet: 192.168.81.0/24
         - subnet: 2001:bbbb:eeee:1::/64
