@@ -159,29 +159,49 @@ services:
         ipv6_address: 2001:bbbb:dddd:1::3
   h11:
     build: .
+    volumes:
+      - ./volumes/h11/supervisord.conf:/etc/supervisor/conf.d/supervisord.conf:ro
     image: ospf:20180419
     privileged: true
+    ports:
+      #admin
+      - 11181:2601
     networks:
       nrh511:
         ipv6_address: 2001:aaaa:ffff:1::10
   h13:
     build: .
+    volumes:
+      - ./volumes/h13/supervisord.conf:/etc/supervisor/conf.d/supervisord.conf:ro
     image: ospf:20180419
     privileged: true
+    ports:
+      #admin
+      - 11381:2601
     networks:
       nrh713:
         ipv6_address: 2001:aaaa:eeee:1::10
   h12:
     build: .
+    volumes:
+      - ./volumes/h12/supervisord.conf:/etc/supervisor/conf.d/supervisord.conf:ro
     image: ospf:20180419
     privileged: true
+    ports:
+      #admin
+      - 11281:2601
     networks:
       nrh612:
         ipv6_address: 2001:bbbb:ffff:1::10
   h14:
     build: .
+    volumes:
+      - ./volumes/h14/supervisord.conf:/etc/supervisor/conf.d/supervisord.conf:ro
     image: ospf:20180419
     privileged: true
+    ports:
+      #admin
+      - 11481:2601
     networks:
       nrh814:
         ipv6_address: 2001:bbbb:eeee:1::10
