@@ -73,11 +73,11 @@ services:
       - 10304:2605
     networks:
       nr39:
-        ipv6_address: 2001:bbbb:aaaa:1::3
+        ipv6_address: 2001:cccc:aaaa:1::2
       nb13:
-        ipv6_address: 2001:bbbb:bbbb:1::3
-      nr23:
-        ipv6_address: 2001:bbbb:cccc:1::3
+        ipv6_address: 2001:aaaa:1:2::2
+      nb23:
+        ipv6_address: 2001:aaaa:1:3::3
   r3:
     build: ./ospf/.
     volumes:
@@ -344,6 +344,14 @@ networks:
       config:
         - subnet: 192.168.68.0/24
         - subnet: 2001:bbbb:dddd:1::/64
+  nr39:
+    driver: "bridge"
+    enable_ipv6: true
+    ipam:
+      driver: default
+      config:
+        - subnet: 192.168.39.0/24
+        - subnet: 2001:cccc:aaaa:1::/64
   nrh511:
     driver: "bridge"
     enable_ipv6: true
