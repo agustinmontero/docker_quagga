@@ -7,7 +7,7 @@ services:
       - ./volumes/quagga/r1/zebra.conf:/etc/quagga/zebra.conf:ro
       - ./volumes/quagga/r1/ospf6d.conf:/etc/quagga/ospf6d.conf:ro
       - ./volumes/supervisord.conf:/etc/supervisor/conf.d/supervisord.conf:ro
-    image: ospf:20180419
+    image: ospf_04:20180419
     privileged: true
     ports:
       #admin
@@ -29,7 +29,7 @@ services:
       - ./volumes/quagga/r2/zebra.conf:/etc/quagga/zebra.conf:ro
       - ./volumes/quagga/r2/ospf6d.conf:/etc/quagga/ospf6d.conf:ro
       - ./volumes/supervisord.conf:/etc/supervisor/conf.d/supervisord.conf:ro
-    image: ospf:20180419
+    image: ospf_04:20180419
     privileged: true
     ports:
       #admin
@@ -51,7 +51,7 @@ services:
       - ./volumes/quagga/r3/zebra.conf:/etc/quagga/zebra.conf:ro
       - ./volumes/quagga/r3/ospf6d.conf:/etc/quagga/ospf6d.conf:ro
       - ./volumes/supervisord.conf:/etc/supervisor/conf.d/supervisord.conf:ro
-    image: ospf:20180419
+    image: ospf_04:20180419
     privileged: true
     ports:
       #admin
@@ -67,7 +67,7 @@ services:
       - ./volumes/quagga/r4/zebra.conf:/etc/quagga/zebra.conf:ro
       - ./volumes/quagga/r4/ospf6d.conf:/etc/quagga/ospf6d.conf:ro
       - ./volumes/supervisord.conf:/etc/supervisor/conf.d/supervisord.conf:ro
-    image: ospf:20180419
+    image: ospf_04:20180419
     privileged: true
     ports:
       #admin
@@ -83,7 +83,7 @@ services:
       - ./volumes/quagga/r5/zebra.conf:/etc/quagga/zebra.conf:ro
       - ./volumes/quagga/r5/ospf6d.conf:/etc/quagga/ospf6d.conf:ro
       - ./volumes/supervisord.conf:/etc/supervisor/conf.d/supervisord.conf:ro
-    image: ospf:20180419
+    image: ospf_04:20180419
     privileged: true
     ports:
       #admin
@@ -103,7 +103,7 @@ services:
       - ./volumes/quagga/r6/zebra.conf:/etc/quagga/zebra.conf:ro
       - ./volumes/quagga/r6/ospf6d.conf:/etc/quagga/ospf6d.conf:ro
       - ./volumes/supervisord.conf:/etc/supervisor/conf.d/supervisord.conf:ro
-    image: ospf:20180419
+    image: ospf_04:20180419
     privileged: true
     ports:
       #admin
@@ -123,7 +123,7 @@ services:
       - ./volumes/quagga/r7/zebra.conf:/etc/quagga/zebra.conf:ro
       - ./volumes/quagga/r7/ospf6d.conf:/etc/quagga/ospf6d.conf:ro
       - ./volumes/supervisord.conf:/etc/supervisor/conf.d/supervisord.conf:ro
-    image: ospf:20180419
+    image: ospf_04:20180419
     privileged: true
     ports:
       #admin
@@ -143,7 +143,7 @@ services:
       - ./volumes/quagga/r8/zebra.conf:/etc/quagga/zebra.conf:ro
       - ./volumes/quagga/r8/ospf6d.conf:/etc/quagga/ospf6d.conf:ro
       - ./volumes/supervisord.conf:/etc/supervisor/conf.d/supervisord.conf:ro
-    image: ospf:20180419
+    image: ospf_04:20180419
     privileged: true
     ports:
       #admin
@@ -161,7 +161,7 @@ services:
     build: .
     volumes:
       - ./volumes/h11/supervisord.conf:/etc/supervisor/conf.d/supervisord.conf:ro
-    image: ospf:20180419
+    image: ospf_04:20180419
     privileged: true
     ports:
       #admin
@@ -173,7 +173,7 @@ services:
     build: .
     volumes:
       - ./volumes/h13/supervisord.conf:/etc/supervisor/conf.d/supervisord.conf:ro
-    image: ospf:20180419
+    image: ospf_04:20180419
     privileged: true
     ports:
       #admin
@@ -185,7 +185,7 @@ services:
     build: .
     volumes:
       - ./volumes/h12/supervisord.conf:/etc/supervisor/conf.d/supervisord.conf:ro
-    image: ospf:20180419
+    image: ospf_04:20180419
     privileged: true
     ports:
       #admin
@@ -197,7 +197,7 @@ services:
     build: .
     volumes:
       - ./volumes/h14/supervisord.conf:/etc/supervisor/conf.d/supervisord.conf:ro
-    image: ospf:20180419
+    image: ospf_04:20180419
     privileged: true
     ports:
       #admin
