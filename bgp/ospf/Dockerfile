@@ -7,7 +7,7 @@ FROM golang:1.8-jessie
 MAINTAINER Cuenca del Rey, Matias <matias.cuenca@unc.edu.ar>
 
 RUN apt-get update
-RUN apt-get install -qy --no-install-recommends supervisor quagga telnet tcpdump ssh nano
+RUN apt-get install -qy --no-install-recommends supervisor quagga telnet tcpdump ssh nano traceroute
 
 RUN sed -i 's/ospf6d=no/ospf6d=yes/g' /etc/quagga/daemons
 RUN sed -i 's/zebra=no/zebra=yes/g' /etc/quagga/daemons
