@@ -83,7 +83,7 @@ services:
     volumes:
       - ./volumes/ospf/r3/zebra.conf:/etc/quagga/zebra.conf:ro
       - ./volumes/ospf/r3/ospf6d.conf:/etc/quagga/ospf6d.conf:ro
-      - ./volumes/ospf/r3/supervisord.conf:/etc/supervisor/conf.d/supervisord.conf:ro
+      - ./volumes/ospf/r3/supervisord.conf:/etc/supervisor/conf.d/supervisord.conf:rw
     image: ospf_05:20180419
     privileged: true
     ports:
@@ -115,7 +115,7 @@ services:
     volumes:
       - ./volumes/ospf/r5/zebra.conf:/etc/quagga/zebra.conf:ro
       - ./volumes/ospf/r5/ospf6d.conf:/etc/quagga/ospf6d.conf:ro
-      - ./volumes/ospf/r5/supervisord.conf:/etc/supervisor/conf.d/supervisord.conf:ro
+      - ./volumes/ospf/r5/supervisord.conf:/etc/supervisor/conf.d/supervisord.conf:rw
     image: ospf_05:20180419
     privileged: true
     ports:
