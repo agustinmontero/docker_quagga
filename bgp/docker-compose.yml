@@ -10,13 +10,17 @@ services:
       - ./volumes/bgp/supervisord.conf:/etc/supervisor/conf.d/supervisord.conf:ro
     image: bgp:20180426
     privileged: true
+    expose:
+      - "2601"
+      - "2606"
+      - "2605"
     ports:
       #admin
-      - 10101:2601
+      - "10101:2601"
       #ospf ipv6
-      - 10103:2606
+      - "10103:2606"
       #bgp
-      - 10104:2605
+      - "10104:2605"
     networks:
       nb12:
         ipv6_address: 2001:aaaa:1:1::3
@@ -37,13 +41,19 @@ services:
       - ./volumes/bgp/supervisord.conf:/etc/supervisor/conf.d/supervisord.conf:ro
     image: bgp:20180426
     privileged: true
+    expose:
+      - "2601"
+      - "2606"
+      - "2605"
     ports:
       #admin
-      - 10201:2601
+      - "10201:2601"
       #ospf ipv6
-      - 10203:2606
+      - "10203:2606"
       #bgp
-      - 10204:2605
+      - "10204:2605"
+    depends_on:
+      - "b1"
     networks:
       nb12:
         ipv6_address: 2001:aaaa:1:1::2
@@ -64,13 +74,20 @@ services:
       - ./volumes/bgp/supervisord.conf:/etc/supervisor/conf.d/supervisord.conf:ro
     image: bgp:20180426
     privileged: true
+    expose:
+      - "2601"
+      - "2606"
+      - "2605"
     ports:
       #admin
-      - 10301:2601
+      - "10301:2601"
       #ospf ipv6
-      - 10303:2606
+      - "10303:2606"
       #bgp
-      - 10304:2605
+      - "10304:2605"
+    depends_on:
+      - "b1"
+      - "b2"
     networks:
       nb13:
         ipv6_address: 2001:aaaa:1:2::2
@@ -86,11 +103,16 @@ services:
       - ./volumes/ospf/r3/supervisord.conf:/etc/supervisor/conf.d/supervisord.conf:rw
     image: ospf_05:20180419
     privileged: true
+    expose:
+      - "2601"
+      - "2606"
     ports:
       #admin
-      - 10031:2601
+      - "10031:2601"
       #ospf ipv6
-      - 10033:2606
+      - "10033:2606"
+    depends_on:
+      - "b1"
     networks:
       nr13:
         ipv6_address: 2001:aaaa:aaaa:1::2
@@ -102,11 +124,16 @@ services:
       - ./volumes/ospf/r4/supervisord.conf:/etc/supervisor/conf.d/supervisord.conf:ro
     image: ospf_05:20180419
     privileged: true
+    expose:
+      - "2601"
+      - "2606"
     ports:
       #admin
-      - 10041:2601
+      - "10041:2601"
       #ospf ipv6
-      - 10043:2606
+      - "10043:2606"
+    depends_on:
+      - "b2"
     networks:
       nr24:
         ipv6_address: 2001:bbbb:aaaa:1::2
@@ -118,11 +145,16 @@ services:
       - ./volumes/ospf/r5/supervisord.conf:/etc/supervisor/conf.d/supervisord.conf:rw
     image: ospf_05:20180419
     privileged: true
+    expose:
+      - "2601"
+      - "2606"
     ports:
       #admin
-      - 10051:2601
+      - "10051:2601"
       #ospf ipv6
-      - 10053:2606
+      - "10053:2606"
+    depends_on:
+      - "b1"
     networks:
       nr15:
         ipv6_address: 2001:aaaa:bbbb:1::2
@@ -138,11 +170,16 @@ services:
       - ./volumes/ospf/r6/supervisord.conf:/etc/supervisor/conf.d/supervisord.conf:ro
     image: ospf_05:20180419
     privileged: true
+    expose:
+      - "2601"
+      - "2606"
     ports:
       #admin
-      - 10061:2601
+      - "10061:2601"
       #ospf ipv6
-      - 10063:2606
+      - "10063:2606"
+    depends_on:
+      - "b2"
     networks:
       nr26:
         ipv6_address: 2001:bbbb:bbbb:1::2
@@ -158,11 +195,16 @@ services:
       - ./volumes/ospf/r7/supervisord.conf:/etc/supervisor/conf.d/supervisord.conf:ro
     image: ospf_05:20180419
     privileged: true
+    expose:
+      - "2601"
+      - "2606"
     ports:
       #admin
-      - 10071:2601
+      - "10071:2601"
       #ospf ipv6
-      - 10073:2606
+      - "10073:2606"
+    depends_on:
+      - "b1"
     networks:
       nr17:
         ipv6_address: 2001:aaaa:cccc:1::2
@@ -178,11 +220,16 @@ services:
       - ./volumes/ospf/r8/supervisord.conf:/etc/supervisor/conf.d/supervisord.conf:ro
     image: ospf_05:20180419
     privileged: true
+    expose:
+      - "2601"
+      - "2606"
     ports:
       #admin
-      - 10081:2601
+      - "10081:2601"
       #ospf ipv6
-      - 10083:2606
+      - "10083:2606"
+    depends_on:
+      - "b2"
     networks:
       nr28:
         ipv6_address: 2001:bbbb:cccc:1::2
@@ -198,11 +245,16 @@ services:
       - ./volumes/ospf/r9/supervisord.conf:/etc/supervisor/conf.d/supervisord.conf:ro
     image: ospf_05:20180419
     privileged: true
+    expose:
+      - "2601"
+      - "2606"
     ports:
       #admin
-      - 10091:2601
+      - "10091:2601"
       #ospf ipv6
-      - 10093:2606
+      - "10093:2606"
+    depends_on:
+      - "b3"
     networks:
       nr39:
         ipv6_address: 2001:cccc:aaaa:1::3
@@ -212,9 +264,13 @@ services:
       - ./volumes/host/h11/supervisord.conf:/etc/supervisor/conf.d/supervisord.conf:ro
     image: host:20180428
     privileged: true
+    expose:
+      - "2601"
     ports:
       #admin
-      - 11181:2601
+      - "11181:2601"
+    depends_on:
+      - "r5"
     networks:
       nrh511:
         ipv6_address: 2001:aaaa:ffff:1::10
@@ -224,9 +280,13 @@ services:
       - ./volumes/host/h13/supervisord.conf:/etc/supervisor/conf.d/supervisord.conf:ro
     image: host:20180428
     privileged: true
+    expose:
+      - "2601"
     ports:
       #admin
-      - 11381:2601
+      - "11381:2601"
+    depends_on:
+      - "r7"
     networks:
       nrh713:
         ipv6_address: 2001:aaaa:eeee:1::10
@@ -236,9 +296,13 @@ services:
       - ./volumes/host/h12/supervisord.conf:/etc/supervisor/conf.d/supervisord.conf:ro
     image: host:20180428
     privileged: true
+    expose:
+      - "2601"
     ports:
       #admin
-      - 11281:2601
+      - "11281:2601"
+    depends_on:
+      - "r6"
     networks:
       nrh612:
         ipv6_address: 2001:bbbb:ffff:1::10
@@ -248,9 +312,13 @@ services:
       - ./volumes/host/h14/supervisord.conf:/etc/supervisor/conf.d/supervisord.conf:ro
     image: host:20180428
     privileged: true
+    expose:
+      - "2601"
     ports:
       #admin
-      - 11481:2601
+      - "11481:2601"
+    depends_on:
+      - "r8"
     networks:
       nrh814:
         ipv6_address: 2001:bbbb:eeee:1::10
